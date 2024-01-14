@@ -1,0 +1,42 @@
+* {
+    margin: 0;            /* 모든 요소의 margin을 초기화 */
+    padding: 0;           /* 모든 요소의 padding을 초기화 */
+    box-sizing: border-box; /* box-sizing 속성을 border-box로 설정하여 박스 모델을 편리하게 사용 */
+}
+
+body {
+    display: flex;                 /* Flexbox를 사용하여 요소를 가로 세로 중앙 정렬 */
+    justify-content: center;
+    align-items: center;
+    background: #100f10;            /* 배경색 지정 */
+    font-family: 'Roboto', sans-serif; /* 폰트 패밀리 지정 */
+    height: 100vh;                  /* 뷰포트 높이의 100% */
+}
+
+h2 {
+    color: #100f10;                 /* 텍스트 색상 설정 */
+    font-size: 14vw;                /* 텍스트 크기를 뷰포트 너비의 14%로 설정 */
+    text-transform: uppercase;      /* 텍스트 대문자 변환 */
+    -webkit-text-stroke: 0.3vw #2ecc71; /* 텍스트 외곽선 적용 (크롬 브라우저용) */
+    position: relative;             /* 상대 위치 설정 */
+}
+
+h2::before {
+    top: 0;
+    left: 0;
+    width: 0;                       /* 초기에는 길이가 0으로 설정하여 보이지 않게 함 */
+    height: 100%;                   /* 높이를 100%로 설정하여 텍스트와 같은 높이로 설정 */
+    color: #37b9f1;                 /* 텍스트 일부의 색상 설정 */
+    overflow: hidden;               /* 넘치는 부분을 감춤 */
+    position: absolute;             /* 절대 위치 설정 */
+    content: attr(data-text);       /* data-text 속성의 내용을 표시 */
+    -webkit-text-stroke: 0vw #2ecc71; /* 외곽선 적용 (크롬 브라우저용) */
+    animation: animate 6s linear infinite; /* 애니메이션 적용 */
+}
+
+@keyframes animate {
+100%
+{
+    width:100%;
+}
+}
